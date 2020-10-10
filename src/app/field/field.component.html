@@ -1,0 +1,15 @@
+<button [class.active-button]="crossStroke" (click)="switchMode()">Ходит крестик</button>
+<button [class.active-button]="!crossStroke" (click)="switchMode()">Ходит нолик</button>
+
+<table>
+    <tr *ngFor="let m of matrix">
+      <td *ngFor="let cell of m" (click)="cellClicked(cell)">
+            <span *ngIf="cell.content == 0">
+                X
+            </span>
+            <span *ngIf="cell.content == 1">
+                0
+            </span>
+      </td>
+    </tr>
+  </table>

@@ -1,9 +1,36 @@
 td {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     background-color: wheat;
 }
 
+.button {
+    text-align: center;
+    margin-top: 29px;
+    margin-bottom: 20px;
+}
+
+button {
+    font-size: 17px;
+    width: 176px;
+    height: 40px;
+    border-radius: 15px;
+    margin: 0 10px;
+    outline: none !important;
+}
+
 .active-button {
-    background-color: tomato;
+    background-color: rgb(255, 166, 0);
+}
+
+table {
+    margin: 0 auto;
+}
+
+td {
+    text-align: center;
+}
+
+span {
+    font-size: 50px;
 }

@@ -1,5 +1,8 @@
-<button [class.active-button]="crossStroke" (click)="switchMode()">Ходит крестик</button>
-<button [class.active-button]="!crossStroke" (click)="switchMode()">Ходит нолик</button>
+<div class="button">
+  <button [class.active-button]="crossStroke" (click)="switchMode()">Ходит крестик</button>
+  <button [class.active-button]="!crossStroke" (click)="switchMode()">Ходит нолик</button>
+</div>
+
 
 <table>
     <tr *ngFor="let m of matrix">

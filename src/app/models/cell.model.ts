@@ -8,7 +8,7 @@ export class Cell {
         this.content = content;
     }
 
-    private content: CellContent =  null;
+    public content: CellContent =  null;
 
     public i = 0; 
     public j = 0; 

@@ -1,0 +1,39 @@
+.ngn-success {
+    background-color: #5eb95e;
+}
+
+.ngn-fixed {
+    position: fixed;
+}
+
+.ngn-bottom {
+    bottom: 0;
+}
+
+.ngn {
+    color: #FFF;
+    height: 35px;
+    cursor: default;
+    font-size: 1.3em;
+    left: 0;
+    opacity: 0;
+    padding: 25px 80px;
+    right: 0;
+    display: block;
+    text-align: center;
+    user-select: none;
+    z-index: 9999;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.ngn-success {
+    background-color: #5eb95e;
+}
+
+.ngn-bottom {
+    bottom: 0;
+}

@@ -10,11 +10,12 @@ import { Cell } from '../models/cell.model';
 export class FieldComponent implements OnInit {
 
   crossStroke: boolean = true;
+  winMessage: string;
 
   matrix: Cell[][] = [
-    [new Cell(0,0), new Cell(0,1), new Cell(0,2)],
-    [new Cell(1,0), new Cell(1,1), new Cell(1,2)],
-    [new Cell(2,0), new Cell(2,1), new Cell(2,2)]
+    [new Cell(0, 0), new Cell(0, 1), new Cell(0, 2)],
+    [new Cell(1, 0), new Cell(1, 1), new Cell(1, 2)],
+    [new Cell(2, 0), new Cell(2, 1), new Cell(2, 2)]
   ];
 
   constructor() { }
@@ -104,13 +105,29 @@ export class FieldComponent implements OnInit {
     this.printResult(xCount, oCount);
   }
 
+  clearField() {
+    setTimeout(() => {
+      this.winMessage = undefined; 
+      this.matrix = [
+        [new Cell(0, 0), new Cell(0, 1), new Cell(0, 2)],
+        [new Cell(1, 0), new Cell(1, 1), new Cell(1, 2)],
+        [new Cell(2, 0), new Cell(2, 1), new Cell(2, 2)]
+      ];
+    }, 3000);
+  }
+
   printResult(xCount, oCount) {
     if (xCount == 3) {
-      alert("X win")
+      this.winMessage = "Крестики выиграли";
     }
     else if (oCount == 3) {
-      alert("0 win")
+      this.winMessage = "Нолики выиграли";
     }
+
+    if(xCount == 3 || oCount == 3){
+      this.clearField();
+    }
+    
   }
 
   cellClicked(cell: Cell){
@@ -122,6 +139,70 @@ export class FieldComponent implements OnInit {
     }  
 
     this.checkWin();
+
+    var fullFiled: boolean = false;
+
+    for (let i = 0; i < this.matrix.length; i++) {
+     
+      let exitFlag: boolean = false;
+      
+      for (let j = 0; j < this.matrix[i].length; j++) {
+        if(this.matrix[i][j].content != null){
+          fullFiled = true;
+        }
+        else {
+          fullFiled = false;
+          exitFlag = true;
+          break;
+        }
+      }
+      if (exitFlag) {
+        break;
+      }
+    }
+
+    if(fullFiled) {
+      this.winMessage = "Никто не победил";
+      this.clearField();
+    }
+    else if (this.winMessage == undefined) {
+      setTimeout(() => {
+        this.randomComputerPlay();
+        this.checkWin();
+      }, 1000);
+  
+    }
+  }
+
+  randomComputerPlay(){
+
+    var freeCells: Cell[] = [];
+
+    for (let i = 0; i < this.matrix.length; i++) {
+      for (let j = 0; j < this.matrix[i].length; j++) {
+        if(this.matrix[i][j].content == null)
+        {
+          freeCells.push(this.matrix[i][j]);
+        }
+      }
+    }
+
+    console.log(this.matrix);
+    console.log(freeCells);
+
+    var n = this.getRandomNumber(0, freeCells.length);
+    if(this.crossStroke){
+      freeCells[n].setToO();
+    }
+    else{
+      freeCells[n].setToX();
+    }
+  }
+
+  getRandomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 
 }

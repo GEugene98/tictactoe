@@ -8,11 +8,13 @@
     <tr *ngFor="let m of matrix">
       <td *ngFor="let cell of m" (click)="cellClicked(cell)">
             <span *ngIf="cell.content == 0">
-                <img src="assets/iconfinder_letter_X_blue_1553039.png" width="50px">
+                <img class="animate__animated animate__zoomIn" src="assets/iconfinder_letter_X_blue_1553039.png" width="50px">
             </span>
             <span *ngIf="cell.content == 1">
-              <img src="assets/iconfinder_number_0_blue_1553042.png" width="50px">
+              <img class="animate__animated animate__zoomIn" src="assets/iconfinder_number_0_blue_1553042.png" width="50px">
             </span>
       </td>
     </tr>
   </table>
+
+<app-toast *ngIf="winMessage != undefined" [message]="winMessage"></app-toast>

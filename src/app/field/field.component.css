@@ -1,7 +1,7 @@
 td {
     width: 140px;
     height: 140px;
-    background-color: wheat;
+    background-color: #dbffdb;
 }
 
 .button {
@@ -16,11 +16,12 @@ button {
     height: 40px;
     border-radius: 15px;
     margin: 0 10px;
-    outline: none !important;
+    outline: none !important; 
 }
 
 .active-button {
-    background-color: rgb(255, 166, 0);
+    background-color: #5eb95e;
+    color: #FFF;
 }
 
 table {
